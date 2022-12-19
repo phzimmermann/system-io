@@ -2,7 +2,7 @@
 Monad implementation for handling side effects
 
 
-Copied a lot from [here](https://medium.com/@magnusjt/the-io-monad-in-javascript-how-does-it-compare-to-other-techniques-124ef8a35b63).
+Copied a lot from [here](https://medium.com/@magnusjt/the-io-monad-in-javascript-how-does-it-compare-to-other-techniques-124ef8a35b63), added Promise support and typesafety.
 
 
 ## Get started
