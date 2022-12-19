@@ -1,0 +1,19 @@
+{
+  "name": "system-io",
+  "version": "1.0.0",
+  "description": "Functional Monad implementation to handle side effects",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phzimmermann/system-io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phzimmermann/system-io/issues"
+  },
+  "homepage": "https://github.com/phzimmermann/system-io#readme"
+}
