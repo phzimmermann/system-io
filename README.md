@@ -2,7 +2,7 @@
 Monad implementation for handling side effects
 
 
-Copied a lot from https://medium.com/@magnusjt/the-io-monad-in-javascript-how-does-it-compare-to-other-techniques-124ef8a35b63
+Copied a lot from [here](https://medium.com/@magnusjt/the-io-monad-in-javascript-how-does-it-compare-to-other-techniques-124ef8a35b63).
 
 
 ## Get started
@@ -64,6 +64,33 @@ const fetchWaitFetch = _do(function* (url: string) { // this is like we would wr
     const result2 = yield* ty(fetch(url));
 
     return result1.name + result1.name2; // this will return a new SystemIO<string>
+});
+```
+
+## Testing
+``` typescript
+import runTestOnSystemIO from "./testUtils";
+
+const getRandomUser = _do(function* () {
+  const user = yield* ty(
+    fetch<User>("https://random-data-api.com/api/v2/users")
+  );
+  return user;
+});
+
+describe("getRandomUser", () => {
+  it("returns correct name", async () => {
+    const randomUser = await runTestOnSystemIO(getRandomUser(), {
+      fetch: () =>
+        Promise.resolve({
+          first_name: "Sponge",
+          last_name: "Bob"
+        }) as any
+    });
+
+    expect(randomUser.first_name).toEqual("Sponge");
+    expect(randomUser.last_name).toEqual("Bob");
+  });
 });
 ```
 
